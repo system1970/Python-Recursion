@@ -8,23 +8,18 @@ import sys
 
 # Complete the superDigit function below.
 def superDigit(n):
-    while len(str(n))!=3:
-        n = list(str(sum(n)))
-        n = [int(x) for x in n]
+    while len(str(n)) != 1:
+        n = sum([int(x) for x in str(n)])
+        print(n)
         superDigit(n)
-    return n[0]
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    return n
 
-    nk = input().split()
+n,k = list(map(int,input().split()))
+n = [int(x) for x in str(n)]
+# n = nk[0]
 
-    n = nk[0]
-
-    k = int(nk[1])
-    arg = list(str(n)*k)
-    arg = [int(x) for x in arg]
-    result = superDigit(arg)
-
-    fptr.write(str(result) + '\n')
-
-    fptr.close()
+# k = int(nk[1])
+# arg = list(str(n)*k)
+# arg = [int(x) for x in arg]
+# result = superDigit(arg)
+print(superDigit(sum(n)*k))
